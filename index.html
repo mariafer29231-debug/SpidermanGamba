@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Una Sorpresa Para Ti 🕷️❤️</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body background="imagenes/amor.png">
+
+    <!-- SPIDER-MAN COLGADO DESDENDIENDO EN EL FONDO -->
+   <div class="spiderman-colgado-fondo">
+    <img src="imagenes/Diseño_sin_título-removebg-preview.png" alt="Spider-Man Colgado">
+   </div>
+
+    <div class="fondo-animado-contenedor"></div>
+
+  <div class="lluvia-estrellas">
+    <span class="star s1">✨</span><span class="star s2">⭐</span>
+    <span class="star s3">🌟</span><span class="star s4">✨</span>
+    <span class="star s5">⭐</span><span class="star s6">✦</span>
+    <span class="star s7">✨</span><span class="star s8">🌟</span>
+    <span class="star s9">⭐</span><span class="star s10">✨</span>
+  </div>
+
+  <div class="layout-principal">
+    <br>
+    <br>
+    <br>
+    <!-- TÍTULO PRINCIPAL EN LA PARTE SUPERIOR -->
+    <h1 class="titulo-encabezado">Para el más lindo del mundo entero 🕷️</h1>
+
+    <!-- SEPARADOR CON LÍNEA DIFUMINADA Y CORAZÓN -->
+    <div class="separador-corazon">
+       <span class="corazon-centro">♡</span>
+    </div>
+
+    <main class="contenedor-principal" id="contenedor-app">
+
+      <section id="pantalla-inicio" class="pantalla activa">
+        <h2>Lindo, tengo una sorpresa para ti...</h2>
+        <p>¿Quieres verla? (ɔ◔‿◔)ɔ ♥</p>
+        <div class="botones-inicio">
+          <button id="btn-si" class="btn btn-rojo">¡Sí, quiero! ♡</button>
+          <button id="btn-no" class="btn btn-azul">No 🙈</button>
+        </div>
+      </section>
+
+      <section id="pantalla-menu" class="pantalla">
+        <h2>Elige una sorpresa ✨</h2>
+        <div class="grid-sorpresas">
+          <button onclick="mostrarPantalla('sorpresa-1')" class="btn-sorpresa">💗 Sorpresa 1</button>
+          <button onclick="mostrarPantalla('sorpresa-2')" class="btn-sorpresa">💗 Sorpresa 2</button>
+          <button onclick="mostrarPantalla('sorpresa-3')" class="btn-sorpresa">💗 Sorpresa 3</button>
+          <button onclick="mostrarPantalla('sorpresa-4')" class="btn-sorpresa">💗 Sorpresa 4</button>
+        </div>
+      </section>
+
+      <section id="sorpresa-1" class="pantalla">
+        <h2 class="titulo-luz">Quiero que sepas que solo pienso en ti...</h2>
+        <div class="Gif">
+          <img src="imagenes/peter-parker.gif" alt="Spider-Man y Gwen">
+        </div>
+        <div class="seccion-musica">
+          <p class="etiqueta-cancion">✨ Te dedico esta canción ✨</p>
+          <audio controls>
+            <source src="Canciones/Lee hi - only  (sub español) [ hidden love ].mp3" type="audio/mpeg">
+          </audio>
+          <p class="escuchala">Escucha esta canción mientras miras las otras sorpresas</p>
+          <p class="mas">Especialmente para ti</p>
+        </div>
+        <button onclick="mostrarPantalla('pantalla-menu')" class="btn-volver">↩ Volver al menú</button>
+      </section>
+
+      <section id="sorpresa-2" class="pantalla">
+        <h2 class="titulo-luz">5 Cosas que Amo de Ti ❤（っ＾▿＾）</h2>
+        <div class="lista-cosas">
+          <div class="item-cosa"><img src="imagenes/imagen 1.jpeg" alt="1"><div><h4>1. Tu sonrisa</h4><p>Ilumina hasta mi día más oscuro.</p></div></div>
+          <div class="item-cosa"><img src="imagenes/imagen 2.jpeg" alt="2"><div><h4>2. Tus abrazos</h4><p>Mi lugar seguro en todo el universo.</p></div></div>
+          <div class="item-cosa"><img src="imagenes/imagen 3.jpeg" alt="3"><div><h4>3. Tu nobleza</h4><p>La forma tan pura en la que me cuidas.</p></div></div>
+          <div class="item-cosa"><img src="imagenes/imagen 4.jpeg" alt="4"><div><h4>4. Tu sentido del humor</h4><p>Amo reírme siempre contigo.</p></div></div>
+          <div class="item-cosa"><img src="imagenes/imagen 5.jpeg" alt="5"><div><h4>5. Simplemente TÚ</h4><p>Amo cada pequeño detalle de ti.</p></div></div>
+        </div>
+        <button onclick="mostrarPantalla('pantalla-menu')" class="btn-volver">↩ Volver al menú</button>
+      </section>
+
+      <section id="sorpresa-3" class="pantalla">
+        <h2 class="titulo-luz">Nuestra Playlist Especial (っ◔◡◔)っ ❤</h2>
+        <div class="contenedor-spotify">
+          <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5Hm9183cSbEfuDXJ9jgmSC?utm_source=generator&si=35e461d026f449ab" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          <p class="explicacion">Pausa la otra canción si quieres escuchar</p>
+          <p class="uy">Muchas canciones que me recuerdan a TI</p>
+          <button onclick="mostrarPantalla('pantalla-menu')" class="btn-volver">↩ Volver al menú</button>
+      </section>
+
+      <section id="sorpresa-4" class="pantalla">
+        <div class="carta-pergamino">
+          <h3>Para mi persona favorita 🕷️</h3>
+          <br>
+          <p>Desde que te vi por primera vez, me pregunté: ¿quién será él?
+<br>
+Admito que, desde ese momento, me parecías alguien muy lindo. A veces te miraba por la ventana, sin imaginar siquiera que algún día podrías llegar a interesarte en mí. Nunca pensé que aquello que comenzó con una simple mirada pudiera terminar significando tanto para mí.
+<br>
+<br>
+Cuando mandaste ese mensaje a mi Instagram, sentí curiosidad. Me pregunté si realmente eras tú… y no me equivoqué. Te respondí porque eras tú, y poco a poco descubrí que, además de parecerme lindo, eras una persona increíblemente agradable.
+<br>
+<br>
+A medida que pasaban los días y hablábamos cada vez más, comenzaste a interesarme mucho más. Nunca imaginé que llegaría a esperar con tantas ansias un mensaje de alguien. Que una simple notificación pudiera cambiarme el ánimo, hacerme sonreír o hacerme sentir tan feliz.
+<br>
+<br>
+Y hay algo que nunca voy a olvidar: cada vez que te contaba mis cosas malas, mis inseguridades o aquellas cosas que me hacían sentir mal conmigo misma, tú encontrabas la manera de mirar más allá de todo eso. Tú veías lo bueno en mí cuando yo misma no podía hacerlo. Y con tus palabras lograste hacerme sentir tan bien que, por primera vez en mucho tiempo, siento que ya no tengo que cargar con la culpa de tantas cosas que me han pasado.
+<br>
+<br>
+Eres mi consuelo. Esa persona con la que puedo sentirme tranquila, escuchada y querida. Y, quizás, lo que más me sorprende es sentir que realmente le importo a alguien.
+<br>
+<br>
+Estar contigo se siente mágico. Quiero compartir contigo cada momento que pueda, porque no hay un solo día en el que no aparezcas en mis pensamientos. Incluso cuando otras personas me miran, se acercan o me piden mis redes sociales, mi mente simplemente vuelve a ti.
+<br>
+<br>
+Y es extraño, porque ni siquiera puedo imaginarme buscando a alguien más. No me interesa pensar si alguien podría ser más atractivo, más interesante o diferente, porque para mí no se trata de encontrar a alguien “mejor”. Se trata de que tú eres tú, y eso es precisamente lo que quiero.
+<br>
+<br>
+Quiero serte fiel, y sé que lo seré. Porque entre tantas personas, llegaste tú. Y no encuentro a nadie que pueda compararse contigo.
+<br>
+<br>
+Eres atento, detallista, comprensivo… y tienes una manera de tratarme que jamás imaginé recibir. Hubo palabras y gestos tuyos que incluso me hicieron llorar, pero esta vez fueron lágrimas de felicidad. Y creo que eso dice mucho de lo que has llegado a significar para mí.
+<br>
+<br>
+Sé que nadie es perfecto. Sé que tú tampoco lo eres y que yo tampoco lo soy. Pero hay momentos en los que me haces pensar que quizá, para mí, eres la excepción.
+<br>
+<br>
+Porque no llegaste a mi vida haciendo ruido. Simplemente apareciste, poco a poco, y sin darme cuenta te convertiste en alguien que ocupa un lugar enorme en mi corazón.
+<br>
+<br>
+Y si alguna vez me preguntara cómo empezó todo esto, probablemente volvería a aquella primera mirada por la ventana y pensaría en lo curioso que es el destino…
+</p>
+          <p>Gracias por ser mi refugio.</p>
+          <p class="firma">Te quiero con todo mi corazón ≧◡≦</p>
+        </div>
+        <button onclick="mostrarPantalla('pantalla-menu')" class="btn-volver">↩ Volver al menú</button>
+      </section>
+      <!-- SPIDER-MAN UBICADO EN LA ESQUINA DEL CUADRO -->
+      <div class="superheroe-esquina">
+        <img src="imagenes/gatoo.png" alt="Spider-Man" class="img-superheroe">
+      </div>
+    </main>
+  <script src="script.js"></script>
+</body>
+</html>

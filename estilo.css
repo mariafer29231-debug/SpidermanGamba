@@ -1,0 +1,457 @@
+/*fuente*/
+@font-face {
+    font-family: "Kissing Season";
+    src: url(Fuentes/Kissing\ Season.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "CHICKEN Pie";
+    src: url(Fuentes/CHICKEN\ Pie.ttf) format("truetype");
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: "CHICKEN Pie", sans-serif;
+}
+p,li,span,button {
+    font-family: "Kissing Season", sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* TU BODY MANTENIENDO TUS PROPIEDADES BASE */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  background-color: #0a0e26; /* Color de respaldo */
+}
+
+/* COMBINACIÓN DE LA OPCIÓN 1 Y LA OPCIÓN 3 */
+.fondo-animado-contenedor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Mantiene el fondo detrás de todo */
+
+  /* OPCIÓN 1: Tu imagen + ruta (/imagenes/amor.png) + Capas de degradado */
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(230, 36, 41, 0.35), transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(0, 210, 255, 0.35), transparent 45%),
+    linear-gradient(rgba(10, 14, 38, 0.78), rgba(10, 14, 38, 0.78)),
+    url('imagenes/amor.png');
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  /* OPCIÓN 3: Animación de respiración/zoom suave */
+  animation: efectoRespirarYMover 18s ease-in-out infinite alternate;
+}
+
+/* KEYFRAMES DE LA OPCIÓN 3 (ANIMACIÓN DE RESPIRACIÓN) */
+@keyframes efectoRespirarYMover {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.05) translate(-5px, -8px);
+  }
+  100% {
+    transform: scale(1.08) translate(5px, 5px);
+  }
+}
+/* CONTENEDOR DEL SPIDER-MAN COLGADO */
+.spiderman-colgado-fondo {
+  position: fixed;
+  top: -300px; /* Inicia oculto arriba fuera de la pantalla */
+  left: 10%;   /* Ajusta este porcentaje si prefieres que baje más a la izquierda o derecha */
+  z-index: 0;  /* Queda detrás de los cuadros interactivos */
+  pointer-events: none; /* Evita que estorbe los clicks en la página */
+  animation: bajarYSubir 12s ease-in-out infinite;
+}
+
+/* IMAGEN DEL SUPERHÉROE */
+.spiderman-colgado-fondo img {
+  width: 300px; /* Ajusta el tamaño que mejor se adapte a tu diseño */
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.6)); /* Sombra suave para darle profundidad */
+}
+
+/* ANIMACIÓN: BAJA, PAUSA Y VUELVE A SUBIR */
+@keyframes bajarYSubir {
+  0% {
+    top: -300px; /* Oculto arriba */
+  }
+  25% {
+    top: -5px;   /* Baja y se muestra colgado en la parte superior */
+  }
+  65% {
+    top: -5px;   /* Se queda colgado un momento flotando sutilmente */
+  }
+  85%, 100% {
+    top: -300px; /* Regresa arriba y espera al siguiente ciclo */
+  }
+}
+
+/* LLUVIA DE ESTRELLAS */
+.lluvia-estrellas {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  pointer-events: none; z-index: 9999; overflow: hidden;
+}
+.star {
+  position: absolute; top: -40px; color: #fff;
+  text-shadow: 0 0 8px rgba(255,255,255,0.9), 0 0 15px rgba(255,215,0,0.7);
+  opacity: 0; animation: caidaEstrella 4s linear infinite;
+}
+.s1 { left: 10%; animation-delay: 0s; }
+.s2 { left: 25%; animation-delay: 1.2s; }
+.s3 { left: 40%; animation-delay: 0.5s; }
+.s4 { left: 55%; animation-delay: 2.1s; }
+.s5 { left: 70%; animation-delay: 0.8s; }
+.s6 { left: 85%; animation-delay: 1.5s; }
+.s7 { left: 18%; animation-delay: 2.8s; }
+.s8 { left: 48%; animation-delay: 3.2s; }
+.s9 { left: 63%; animation-delay: 1.0s; }
+.s10 { left: 92%; animation-delay: 0.3s; }
+
+@keyframes caidaEstrella {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+}
+/* TÍTULO PRINCIPAL MÁS ABAJO */
+.titulo-encabezado {
+  position: fixed;
+  top: 8vh;              /* Cambiado de px a vh para bajarlo proporcionalmente */
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  max-width: 90%;
+  text-align: center;
+  margin: 0;
+  z-index: 100;
+  
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 800;
+  white-space: nowrap;
+  
+  /* Resplandor neón estilo Spider-Man */
+  text-shadow: 
+    0 0 10px rgba(37, 9, 102, 0.9),
+    0 0 20px rgba(16, 17, 117, 0.8),
+    0 0 30px rgba(44, 11, 105, 0.6);
+}
+
+/* SEPARADOR CON LÍNEA Y CORAZÓN AJUSTADO JUSTO DEBAJO DEL TÍTULO */
+.separador-corazon {
+  position: fixed;
+  top: calc(12vh + 45px); /* Se posiciona exactamente debajo del título bajado */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+/* LÍNEA BLANCA QUE SE DESVANOCE EN LOS BORDES */
+.separador-corazon::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1.5px;
+  background: linear-gradient(
+    90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.85) 35%, 
+    rgba(255, 255, 255, 0.85) 65%, 
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+/* CORAZÓN ♡ ESTÁTICO EN EL CENTRO */
+.corazon-centro {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  font-size: 1.1rem;
+  padding: 0 10px;
+  background-color: #0a0e26;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* ADAPTABILIDAD PARA CELULARES */
+@media (max-width: 600px) {
+  .titulo-encabezado {
+    top: 8vh;
+    font-size: 1.4rem;
+    white-space: normal;
+  }
+  
+  .separador-corazon {
+    top: calc(8vh + 40px);
+    width: 240px;
+  }
+}
+
+/* LAYOUT CON SPIDER-MAN AL LADO */
+.layout-principal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 95%;
+  max-width: 900px;
+  z-index: 10;
+}
+
+/* CONTENEDOR PRINCIPAL PERFECCIONADO EN EL CENTRO DE LA PANTALLA */
+.contenedor-principal {
+  position: relative; /* Clave: sirve de referencia para la imagen en la esquina */
+  background: rgba(13, 18, 51, 0.85);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 35px 30px;
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto; /* Garantiza el centrado exacto */
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 25px rgba(230, 36, 41, 0.5), 0 0 35px rgba(0, 210, 255, 0.3);
+  text-align: center;
+  color: white;
+  z-index: 10;
+}
+
+/* POSICIONAMIENTO ABSOLUTO DE SPIDER-MAN EN LA ESQUINA INFERIOR DERECHA */
+.superheroe-esquina {
+  position: absolute;
+  bottom: -25px;   /* Asoma un poco por la parte inferior */
+  right: -35px;    /* Sobresale un poco hacia la derecha para un efecto 3D */
+  pointer-events: none; /* Evita que la imagen bloquee los clics en botones */
+  z-index: 20;
+}
+
+/* ESTILO Y ANIMACIÓN DE LA IMAGEN DE SPIDER-MAN */
+.img-superheroe {
+  width: 120px;    /* Tamaño adecuado para que no opaque el contenido */
+  height: auto;
+  animation: flotarEsquina 3s infinite alternate ease-in-out;
+}
+
+/* ANIMACIÓN DE FLOTACIÓN SUTIL EN LA ESQUINA */
+@keyframes flotarEsquina {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-8px) rotate(3deg);
+  }
+}
+
+/* ADAPTABILIDAD PARA MÓVILES (evita que la imagen sobresalga demasiado en pantallas pequeñas) */
+@media (max-width: 480px) {
+  .superheroe-esquina {
+    bottom: -15px;
+    right: -15px;
+  }
+  .img-superheroe {
+    width: 90px;
+  }
+}
+
+
+/* CONTROL DE PANTALLAS */
+.pantalla {
+  display: none;
+}
+.pantalla.activa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* BOTONES */
+.btn {
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  border: 2px solid #fff;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.btn:hover { transform: scale(1.05); }
+.btn-rojo { background: #e62429; color: white; box-shadow: 0 0 10px #e62429; }
+.btn-azul { background: #00d2ff; color: #000; box-shadow: 0 0 10px #00d2ff; }
+
+.grid-sorpresas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  width: 100%;
+  margin-top: 15px;
+}
+.btn-sorpresa {
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #00d2ff, #0072ff);
+  color: white;
+  border: 1.5px solid #fff;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.btn-volver {
+  margin-top: 15px;
+  background: transparent;
+  color: #00d2ff;
+  border: 1px solid #00d2ff;
+  padding: 8px 18px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+/* ESTILO Y ANIMACIÓN BASE PARA LOS BOTONES DE SORPRESA */
+.btn-sorpresa {
+  padding: 15px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(135deg, #00d2ff, #0072ff);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 12px rgba(0, 210, 255, 0.5);
+  
+  /* Animación continua de respiración/flotación */
+  animation: flotarBoton 3s infinite alternate ease-in-out;
+}
+
+/* Efecto de luz brillante que pasa rápido al pasar el cursor */
+.btn-sorpresa::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transition: all 0.5s ease;
+}
+
+/* EFECTO AL PASAR EL CURSOR (HOVER) */
+.btn-sorpresa:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: linear-gradient(135deg, #e62429, #ff0055); /* Cambia a tono rojo Spider-Man */
+  border-color: #ffffff;
+  box-shadow: 0 0 20px rgba(230, 36, 41, 0.9), 0 0 35px rgba(255, 0, 85, 0.7);
+}
+
+.btn-sorpresa:hover::before {
+  left: 100%; /* Hace que el destello cruce el botón */
+}
+
+/* EFECTO AL HACER CLIC (ACTIVE) */
+.btn-sorpresa:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* ANIMACIÓN DE FLOTACIÓN SUAVE CONTINUA */
+@keyframes flotarBoton {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+/* DESFASES PARA QUE LOS BOTONES NO FLOTEN TODOS AL MISMO TIEMPO */
+.grid-sorpresas button:nth-child(1) { animation-delay: 0s; }
+.grid-sorpresas button:nth-child(2) { animation-delay: 0.4s; }
+.grid-sorpresas button:nth-child(3) { animation-delay: 0.8s; }
+.grid-sorpresas button:nth-child(4) { animation-delay: 1.2s; }
+
+.carta-pergamino {
+  background: #fffaf0;
+  color: #2b1d0c;
+  padding: 25px 20px;
+  border-radius: 12px;
+  text-align: justify;
+  border: 2px solid #d4af37;
+  
+  /* Límite de altura y scroll vertical interno */
+  max-height: 55vh;         /* Ocupa máximo el 55% de la altura de pantalla */
+  overflow-y: auto;          /* Activa la barra de desplazamiento si el texto es largo */
+  margin-top: 10px;
+  
+  /* Sombra elegante dentro del papel */
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo personalizado para la barra de scroll de la carta */
+.carta-pergamino::-webkit-scrollbar {
+  width: 6px;
+}
+
+.carta-pergamino::-webkit-scrollbar-thumb {
+  background: #e62429;
+  border-radius: 10px;
+}
+
+.carta-pergamino::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+/* CONTENIDOS INTERNOS */
+.Gif img { width: 100%; max-width: 320px; border-radius: 10px; }
+.lista-cosas { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+.item-cosa {
+  display: flex; align-items: center; gap: 12px;
+  background: rgba(255, 255, 255, 0.1); padding: 8px; border-radius: 10px; text-align: left;
+}
+.item-cosa img { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; }
+.carta-pergamino {
+  background: #fffaf0; color: #2b1d0c; padding: 20px; border-radius: 12px; text-align: justify;
+}
+
+/* SPIDER-MAN LATERAL (SOLO ANIMACIÓN) */
+.contenedor-superheroe-lateral {
+  flex-shrink: 0;
+}
+.img-superheroe {
+  width: 180px;
+  height: auto;
+  animation: flotar 3s infinite alternate ease-in-out;
+}
+@keyframes flotar {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-12px); }
+}
+
+@media (max-width: 768px) {
+  .layout-principal { flex-direction: column; }
+}
