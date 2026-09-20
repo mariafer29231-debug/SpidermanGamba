@@ -1,0 +1,443 @@
+/* ===================================================
+   1. FUENTES Y REGLAS GLOBALES
+   =================================================== */
+@font-face {
+  font-family: "Kissing Season";
+  src: url("Fuentes/Kissing Season.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "CHICKEN Pie";
+  src: url("Fuentes/CHICKEN Pie.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "CHICKEN Pie", sans-serif;
+}
+
+p, li, span, button {
+  font-family: "Kissing Season", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 20px 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0a0e26;
+  overflow-x: hidden;
+}
+
+/* ===================================================
+   2. FONDO ANIMADO Y EFECTOS
+   =================================================== */
+.fondo-animado-contenedor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(230, 36, 41, 0.35), transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(0, 210, 255, 0.35), transparent 45%),
+    linear-gradient(rgba(10, 14, 38, 0.78), rgba(10, 14, 38, 0.78)),
+    url('imagenes/amor.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  animation: efectoRespirarYMover 18s ease-in-out infinite alternate;
+}
+
+@keyframes efectoRespirarYMover {
+  0% { transform: scale(1) translate(0, 0); }
+  50% { transform: scale(1.05) translate(-5px, -8px); }
+  100% { transform: scale(1.08) translate(5px, 5px); }
+}
+
+.spiderman-colgado-fondo {
+  position: fixed;
+  top: -300px;
+  left: 10%;
+  z-index: 0;
+  pointer-events: none;
+  animation: bajarYSubir 12s ease-in-out infinite;
+}
+
+.spiderman-colgado-fondo img {
+  width: 250px;
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.6));
+}
+
+@keyframes bajarYSubir {
+  0% { top: -300px; }
+  25% { top: -5px; }
+  65% { top: -5px; }
+  85%, 100% { top: -300px; }
+}
+
+/* LLUVIA DE ESTRELLAS */
+.lluvia-estrellas {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  pointer-events: none; z-index: 9999; overflow: hidden;
+}
+.star {
+  position: absolute; top: -40px; color: #fff;
+  text-shadow: 0 0 8px rgba(255,255,255,0.9), 0 0 15px rgba(255,215,0,0.7);
+  opacity: 0; animation: caidaEstrella 4s linear infinite;
+}
+.s1 { left: 10%; animation-delay: 0s; }
+.s2 { left: 25%; animation-delay: 1.2s; }
+.s3 { left: 40%; animation-delay: 0.5s; }
+.s4 { left: 55%; animation-delay: 2.1s; }
+.s5 { left: 70%; animation-delay: 0.8s; }
+.s6 { left: 85%; animation-delay: 1.5s; }
+.s7 { left: 18%; animation-delay: 2.8s; }
+.s8 { left: 48%; animation-delay: 3.2s; }
+.s9 { left: 63%; animation-delay: 1.0s; }
+.s10 { left: 92%; animation-delay: 0.3s; }
+
+@keyframes caidaEstrella {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+}
+
+/* ===================================================
+   3. ENCABEZADO Y SEPARADOR DE CORAZÓN
+   =================================================== */
+.titulo-encabezado {
+  position: relative;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+  z-index: 100;
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-shadow: 
+    0 0 10px rgba(37, 9, 102, 0.9),
+    0 0 20px rgba(16, 17, 117, 0.8),
+    0 0 30px rgba(44, 11, 105, 0.6);
+}
+
+.separador-corazon {
+  position: relative;
+  margin-bottom: 25px;
+  width: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.separador-corazon::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1.5px;
+  background: linear-gradient(
+    90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.85) 35%, 
+    rgba(255, 255, 255, 0.85) 65%, 
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+.corazon-centro {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  font-size: 1.1rem;
+  padding: 0 10px;
+  background-color: #0a0e26;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* ===================================================
+   4. ESTRUCTURA Y CONTENEDOR PRINCIPAL
+   =================================================== */
+.layout-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  z-index: 10;
+}
+
+.contenedor-principal {
+  position: relative;
+  background: rgba(13, 18, 51, 0.88);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 30px 25px;
+  width: 90%;
+  max-width: 480px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 25px rgba(230, 36, 41, 0.5), 0 0 35px rgba(0, 210, 255, 0.3);
+  text-align: center;
+  color: white;
+  z-index: 10;
+}
+
+.pantalla {
+  display: none;
+}
+
+.pantalla.activa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* ===================================================
+   5. BOTONES E INTERACCIONES
+   =================================================== */
+.botones-inicio {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  border: 2px solid #fff;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover { transform: scale(1.05); }
+.btn-rojo { background: #e62429; color: white; box-shadow: 0 0 10px #e62429; }
+.btn-azul { background: #00d2ff; color: #000; box-shadow: 0 0 10px #00d2ff; }
+
+.grid-sorpresas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn-sorpresa {
+  padding: 15px 10px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(135deg, #00d2ff, #0072ff);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 12px rgba(0, 210, 255, 0.5);
+  animation: flotarBoton 3s infinite alternate ease-in-out;
+}
+
+.btn-sorpresa::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transition: all 0.5s ease;
+}
+
+.btn-sorpresa:hover {
+  transform: translateY(-4px) scale(1.03);
+  background: linear-gradient(135deg, #e62429, #ff0055);
+  border-color: #ffffff;
+  box-shadow: 0 0 20px rgba(230, 36, 41, 0.9), 0 0 35px rgba(255, 0, 85, 0.7);
+}
+
+.btn-sorpresa:hover::before { left: 100%; }
+.btn-sorpresa:active { transform: translateY(1px) scale(0.98); }
+
+@keyframes flotarBoton {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-5px); }
+}
+
+.grid-sorpresas button:nth-child(1) { animation-delay: 0s; }
+.grid-sorpresas button:nth-child(2) { animation-delay: 0.4s; }
+.grid-sorpresas button:nth-child(3) { animation-delay: 0.8s; }
+.grid-sorpresas button:nth-child(4) { animation-delay: 1.2s; }
+
+.btn-volver {
+  margin-top: 15px;
+  background: transparent;
+  color: #00d2ff;
+  border: 1px solid #00d2ff;
+  padding: 8px 18px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ===================================================
+   6. CONTENIDOS DE LAS SORPRESAS Y CARTA
+   =================================================== */
+.Gif img { 
+  width: 100%; 
+  max-width: 280px; 
+  border-radius: 10px; 
+}
+
+.seccion-musica audio {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.lista-cosas { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 10px; 
+  width: 100%; 
+  max-height: 50vh;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.item-cosa {
+  display: flex; 
+  align-items: center; 
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.1); 
+  padding: 10px; 
+  border-radius: 10px; 
+  text-align: left;
+}
+
+.item-cosa img { 
+  width: 45px; 
+  height: 45px; 
+  border-radius: 50%; 
+  object-fit: cover; 
+  flex-shrink: 0;
+}
+
+.contenedor-spotify {
+  width: 100%;
+}
+
+.carta-pergamino {
+  background: #fffaf0;
+  color: #2b1d0c;
+  padding: 20px 15px;
+  border-radius: 12px;
+  text-align: justify;
+  border: 2px solid #d4af37;
+  max-height: 50vh;
+  overflow-y: auto;
+  margin-top: 10px;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.carta-pergamino::-webkit-scrollbar,
+.lista-cosas::-webkit-scrollbar {
+  width: 5px;
+}
+
+.carta-pergamino::-webkit-scrollbar-thumb,
+.lista-cosas::-webkit-scrollbar-thumb {
+  background: #e62429;
+  border-radius: 10px;
+}
+
+/* ===================================================
+   7. DECORACIÓN GATO EN LA ESQUINA
+   =================================================== */
+.superheroe-esquina {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.img-superheroe {
+  width: 95px;
+  height: auto;
+  animation: flotarEsquina 3s infinite alternate ease-in-out;
+}
+
+@keyframes flotarEsquina {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-6px) rotate(3deg); }
+}
+
+/* ===================================================
+   8. MEDIA QUERIES (OPTIMIZACIÓN PARA CELULARES)
+   =================================================== */
+@media (max-width: 600px) {
+  body {
+    padding: 10px 0 30px 0;
+  }
+
+  .titulo-encabezado {
+    font-size: 1.35rem;
+    margin-top: 10px;
+  }
+
+  .separador-corazon {
+    width: 220px;
+    margin-bottom: 15px;
+  }
+
+  .contenedor-principal {
+    width: 92%;
+    padding: 25px 15px;
+  }
+
+  .grid-sorpresas {
+    grid-template-columns: 1fr; /* 1 columna en teléfonos para mayor comodidad */
+    gap: 10px;
+  }
+
+  .btn-sorpresa {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .carta-pergamino {
+    max-height: 45vh; /* Ajusta el espacio para que no tape los botones */
+    font-size: 0.9rem;
+  }
+
+  .img-superheroe {
+    width: 75px; /* Reducción de escala en celulares */
+  }
+
+  .superheroe-esquina {
+    bottom: -15px;
+    right: -10px;
+  }
+
+  .spiderman-colgado-fondo img {
+    width: 180px;
+  }
+}
